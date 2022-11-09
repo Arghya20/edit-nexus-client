@@ -1,4 +1,5 @@
 import React from "react";
+import { FaArrowCircleRight, FaRegArrowAltCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
@@ -29,9 +30,10 @@ const HeroSection = () => {
             <div className="flex items-center space-x-3">
               <Link
                 to="/"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded-full shadow-xl  bg-gray-800 text-white "
+                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded-full shadow-xl  bg-gray-700 hover:bg-gray-800 text-white gap-x-2"
               >
-                Get started
+                <span>Get started</span>
+                <FaArrowCircleRight />
               </Link>
             </div>
           </div>

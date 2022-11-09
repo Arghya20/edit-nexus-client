@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Wedding Video Editing",
+    "img": "https://image.cnbcfm.com/api/v1/image/107033018-1647627522460-gettyimages-1169477405-img_4967.jpeg?v=1647627565",
+    "dec": "EDIT NEXUS offers comprehensive wedding video editing services to help you focus on producing and shooting a wedding ceremony.",
+    "price": 40
+  },
+  {
+    "title": "Film Re-Editing Service",
+    "img": "https://variety.com/wp-content/uploads/2015/02/film-editing-oscar-nominees.jpg",
+    "dec": "EDIT NEXUS has the expertise to handle your most demanding film re-editing services",
+    "price": 280
+  },
+  {
+    "title": "Logo Animation Services",
+    "img": "https://ma-hub.imgix.net/wp-images/2020/03/13150957/After-Effects-Logo-Animation-Tutorial.jpg",
+    "dec": "logo animation service helps in creating a logo that represents everything you want customers",
+    "price": 25
+  }
+]
