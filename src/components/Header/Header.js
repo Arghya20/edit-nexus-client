@@ -47,7 +47,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/blog"
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400 flex items-center gap-x-1 hover:text-gray-800"
@@ -118,8 +118,8 @@ const Header = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-green-50 border rounded shadow-2xl">
+              <div className="absolute top-0 left-0 w-full z-50">
+                <div className="p-5 bg-green-50 border rounded-lg shadow-2xl z-50 border-gray-300">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link
@@ -174,7 +174,7 @@ const Header = () => {
                       </li>
                       <li>
                         <Link
-                          to="/"
+                          to="/blog"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400 flex items-center gap-x-1 hover:text-gray-800"

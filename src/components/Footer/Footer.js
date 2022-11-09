@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <h2>This is footer page </h2>
       <footer className="px-4 py-8 bg-green-100">
         <div className="container flex flex-wrap flex-col-reverse lg:flex-row  items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
           <div className="flex flex-row pr-3 space-x-4 sm:space-x-8 mt-4 md:mt-0">
