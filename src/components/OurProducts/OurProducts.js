@@ -70,11 +70,11 @@ const OurProducts = () => {
               />
             </div>
             <div className="flex justify-center">
-                <a href="https://www.dropbox.com/s/cw60o4y3y2g1fi3/AG%20Dark%20Preset%20%20%281%29.dng?dl=1">
-              <button className="my-btn mt-10 flex items-center gap-x-2">
-                Download Now
-                <FaDownload />
-              </button>
+              <a href="https://www.dropbox.com/s/cw60o4y3y2g1fi3/AG%20Dark%20Preset%20%20%281%29.dng?dl=1">
+                <button className="my-btn mt-10 flex items-center gap-x-2">
+                  Download Now
+                  <FaDownload />
+                </button>
               </a>
             </div>
           </div>

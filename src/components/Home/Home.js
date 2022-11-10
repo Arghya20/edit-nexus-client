@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import OurProducts from "../OurProducts/OurProducts";
 import ServiceCard from "../ServiceCard/ServiceCard";
 import HeroSection from "./HeroSection/HeroSection";
+import Stats from "./Stats/Stats";
 
 const Home = () => {
   const [services, setServices] = useState([]);
@@ -15,7 +16,7 @@ const Home = () => {
     <div className="bg-gray-50 w-full">
       <HeroSection></HeroSection>
       <div>
-        <h2 className="text-2xl text-center my-10 font-semibold bg-green underline text-red-800">
+        <h2 className="text-5xl text-center my-10 font-bold text-blue-800">
           Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto w-3/4 gap-4 sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
@@ -33,12 +34,13 @@ const Home = () => {
           See all
         </Link>
       </div>
-      <div className="sm:max-w-xl md:max-w-full lg:max-w-screen-xl mx-auto">
-        <h2 className="text-2xl text-center mt-24 -mb-10 font-semibold bg-green underline text-red-800">
+      <div className="sm:max-w-xl md:max-w-full lg:max-w-screen-xl mx-auto ">
+        <h2 className="text-5xl text-center  font-bold bg-green  text-blue-800 mt-24 -mb-10">
           Our Products
         </h2>
         <OurProducts></OurProducts>
       </div>
+      <Stats></Stats>
     </div>
   );
 };
