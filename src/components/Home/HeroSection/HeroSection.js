@@ -29,7 +29,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center space-x-3">
               <Link
-                to="/"
+                to="/"outline-4
                 className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded-full shadow-xl  bg-gray-700 hover:bg-gray-800 text-white gap-x-2"
               >
                 <span>Get started</span>
@@ -40,7 +40,7 @@ const HeroSection = () => {
           <div className="flex items-center justify-center lg:w-1/2">
             <div className="w-full">
               <img
-                className="object-cover rounded-lg shadow-2xl shadow-gray-300"
+                className="object-cover rounded-lg shadow-2xl shadow-gray-300 outline outline-4 outline-gray-400"
                 src="https://www.learnupon.com/wp-content/uploads/Video-editing-basics-for-eLearning1200x628.jpg"
                 alt=""
               />

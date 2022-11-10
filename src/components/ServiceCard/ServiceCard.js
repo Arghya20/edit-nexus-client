@@ -16,7 +16,7 @@ const ServiceCard = ({ service }) => {
           </h2>
         </div>
         <p className="text-gray-500">
-          {dec.length > 100 ? dec.slice(0, 100) : dec}
+          {dec.length > 100 ? dec.slice(0, 100) + '...' : dec}
         </p>
         <p className="text-gray-800 mt-2">
           <span className="font-bold">Price:</span> ${price}
