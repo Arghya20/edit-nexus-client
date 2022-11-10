@@ -86,7 +86,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/login"
                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200  border border-gray-500 rounded-full hover:bg-gray-800 hover:text-white "
                 aria-label="Sign up"
                 title="Sign up"
@@ -213,7 +213,7 @@ const Header = () => {
                       </li>
                       <li>
                         <Link
-                          href="/"
+                          href="/login"
                           className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded-full border border-gray-500 hover:bg-gray-800 hover:text-white "
                           aria-label="Sign up"
                           title="Sign up"
