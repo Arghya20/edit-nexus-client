@@ -8,7 +8,7 @@ const Footer = () => {
       <footer className="px-4 py-8 bg-green-100">
         <div className="container flex flex-wrap flex-col-reverse lg:flex-row  items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
           <div className="flex flex-row pr-3 space-x-4 sm:space-x-8 mt-4 md:mt-0">
-            <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full -mr-8">
+            <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full -mr-8 hidden md:block">
               <img src="https://i.ibb.co/qjc2hGM/logo.png" alt="" />
             </div>
             <ul className="flex flex-wrap items-center space-x-4 sm:space-x-8 ">
@@ -24,7 +24,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="flex items-center gap-x-2">
-                <FaRegCopyright /> <p> 2023 Edit Nexus</p>
+                <FaRegCopyright /> <p> 2023 Edit Nexus All rights reserved</p>
               </li>
             </ul>
           </div>

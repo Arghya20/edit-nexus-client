@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import OurProducts from "../OurProducts/OurProducts";
 import ServiceCard from "../ServiceCard/ServiceCard";
 import HeroSection from "./HeroSection/HeroSection";
 
@@ -11,7 +12,7 @@ const Home = () => {
       .then((data) => setServices(data));
   }, []);
   return (
-    <div className="bg-green-50 w-full">
+    <div className="bg-gray-50 w-full">
       <HeroSection></HeroSection>
       <div>
         <h2 className="text-2xl text-center my-10 font-semibold bg-green underline text-red-800">
@@ -25,9 +26,18 @@ const Home = () => {
         </div>
       </div>
       <div className="flex justify-center mt-10  pb-12">
-        <Link to='/allservices' className="bg-gray-700 hover:bg-gray-800 py-3 px-16  rounded-full text-white shadow-xl">
+        <Link
+          to="/Services"
+          className="bg-gray-700 hover:bg-gray-800 py-3 px-16  rounded-full text-white shadow-xl"
+        >
           See all
         </Link>
+      </div>
+      <div className="sm:max-w-xl md:max-w-full lg:max-w-screen-xl mx-auto">
+        <h2 className="text-2xl text-center mt-24 -mb-10 font-semibold bg-green underline text-red-800">
+          Our Products
+        </h2>
+        <OurProducts></OurProducts>
       </div>
     </div>
   );
