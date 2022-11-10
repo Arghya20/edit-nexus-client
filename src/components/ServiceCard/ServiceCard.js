@@ -15,12 +15,14 @@ const ServiceCard = ({ service }) => {
             {title}
           </h2>
         </div>
-        <p className="text-gray-500">{dec}</p>
+        <p className="text-gray-500">
+          {dec.length > 100 ? dec.slice(0, 100) : dec}
+        </p>
         <p className="text-gray-800 mt-2">
           <span className="font-bold">Price:</span> ${price}
         </p>
         <button className=" outline outline-gray-700 w-full py-2 mt-4 rounded-full hover:bg-gray-800 hover:text-white">
-          Show More
+          View details
         </button>
       </div>
     </div>
