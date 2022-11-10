@@ -66,12 +66,60 @@ const Blog = () => {
             </div>
             <div className="space-y-8">
               <div>
-                <p className="mb-4 text-xl font-medium">3. Question</p>
-                <p className="text-gray-700"></p>
+                <p className="mb-4 text-xl font-medium">
+                  3. What is the difference between javascript and NodeJS?
+                </p>
+                <p className="text-gray-700">
+                  <strong> Ans. </strong>
+                  JavaScript is a lightweight, cross-platform, interpreted
+                  scripting programming language that is primarily used for
+                  client-side scripting. It's built into both Java and HTML. On
+                  the other hand, Node.js is a server-side scripting language
+                  based on the Google Chrome V8 engine. As a result, it's used
+                  to build network-centric applications. It is a distributed
+                  system that is used for data-intensive real-time applications.{" "}
+                  <br />
+                  JavaScript is a simple programming language that could be run
+                  in any browser that supports the JavaScript Engine. On the
+                  other hand, Node.js is a running environment or interpreter
+                  for the JavaScript programming language. It needs libraries
+                  that may be easily accessed from JavaScript programming to
+                  make it more useful. <br />
+                  JavaScript can run on any engine, including Firefox's Spider
+                  Monkey, Safari's JavaScript Core, and V8 (Google Chrome). As a
+                  result, JavaScript programming is very simple to create, and
+                  any running environment is equivalent to a proper browser. On
+                  the other hand, Node.js only supports the V8 engine, which is
+                  exclusive to Google Chrome. However, written JavaScript code
+                  can run in any environment, regardless of whether it supports
+                  the V8 engine.
+                </p>
               </div>
               <div>
-                <p className="mb-4 text-xl font-medium">4. Question ?</p>
-                <p className="text-gray-700">ans.</p>
+                <p className="mb-4 text-xl font-medium">
+                  4. How does NodeJS handle multiple requests at the same time?{" "}
+                </p>
+                <p className="text-gray-700">
+                  {" "}
+                  <strong> Ans. </strong>
+                  I understand that Node.js uses a single-thread and an event
+                  loop to process requests only processing one at a time (which
+                  is non-blocking). But still, how does that work, lets say
+                  10,000 concurrent requests. The event loop will process all
+                  the requests? Would not that take too long?
+                  <br />
+                  I can not understand (yet) how it can be faster than a
+                  multi-threaded web server. I understand that multi-threaded
+                  web server will be more expensive in resources (memory, CPU),
+                  but would not it still be faster? I am probably wrong; please
+                  explain how this single-thread is faster in lots of requests,
+                  and what it typically does (in high level) when servicing lots
+                  of requests like 10,000.
+                  <br />
+                  And also, will that single-thread scale well with that large
+                  amount? Please bear in mind that I am just starting to learn
+                  Node.js.
+                </p>
               </div>
             </div>
           </div>
