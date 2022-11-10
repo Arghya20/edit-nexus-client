@@ -8,7 +8,7 @@ import Stats from "./Stats/Stats";
 const Home = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("services.json")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -22,7 +22,7 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto w-3/4 gap-4 sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
           {/* // {dec.length > 100 ? dec.slice(0, 100) + '...' : dec} */}
           {services.slice(0, 3).map((service) => (
-            <ServiceCard service={service}></ServiceCard>
+            <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}
         </div>
       </div>
