@@ -6,8 +6,12 @@ import Blog from "./components/Blog/Blog";
 import Services from "./components/Services/Services";
 import ServiceDetails from "./components/ServiceDetails/ServiceDetails";
 import Error from "./components/Error/Error";
-import Login from "./components/Login/Login";
+
 import SignUp from "./components/SignUp/SignUp";
+import Login from "./components/Login/Login";
+import AddServices from "./components/AddServices/AddServices";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import Reviews from "./components/Reviews/Reviews";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +27,22 @@ function App() {
         {
           path: "/blog",
           element: <Blog></Blog>,
+        },
+        {
+          path: "/addservices",
+          element: (
+            <PrivateRoute>
+              <AddServices></AddServices>
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: "/myreviews",
+          element: (
+            <PrivateRoute>
+              <Reviews></Reviews>
+            </PrivateRoute>
+          ),
         },
         {
           path: "/Services",

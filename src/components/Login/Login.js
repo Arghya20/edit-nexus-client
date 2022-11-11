@@ -1,16 +1,61 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../hooks/useTitle";
 
+import { GoogleAuthProvider } from "firebase/auth";
+
 const Login = () => {
+  const location = useLocation();
   useTitle("Login");
+  const [error, setError] = useState("");
+
+  const { loginUser, providerLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    loginUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+        console.log(error.message);
+      });
+  };
+  const googleProvider = new GoogleAuthProvider();
+  const handelGoogleLogin = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
   return (
     <div className="m-4 md:m-0">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 mx-auto my-40 shadow-lg border border-gray-300">
         <h1 className="text-2xl font-bold text-center">Login</h1>
+        <p className="text-center text-red-800 bg-red-200 rounded-full">
+          {error}
+        </p>
+
         <form
-          novalidate=""
-          action=""
+          onSubmit={handleLogin}
           className="space-y-6 ng-untouched ng-pristine ng-valid"
           data-bitwarden-watching="1"
         >
@@ -38,9 +83,11 @@ const Login = () => {
               className="w-full px-4 py-3 rounded-md border-gray-300 border shadow text-gray-800 focus:border-violet-600"
             />
           </div>
-          <button className="block w-full p-3 text-center rounded-full outline outline-gray-600 hover:bg-gray-700 hover:text-white">
-            Log In
-          </button>
+          <input
+            className="block w-full p-3 text-center rounded-full outline outline-gray-600 hover:bg-gray-700 hover:text-white cursor-pointer"
+            type="submit"
+            value="Login"
+          />
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
@@ -51,6 +98,7 @@ const Login = () => {
         </div>
         <div className="flex justify-center space-x-4">
           <button
+            onClick={handelGoogleLogin}
             aria-label="Log in with Google"
             className="p-3 rounded-full shadow-lg bg-white"
           >

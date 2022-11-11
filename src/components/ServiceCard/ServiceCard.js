@@ -10,7 +10,7 @@ const ServiceCard = ({ service }) => {
       <div className="max-w-xs min-h-full p-6 rounded-lg shadow-md bg-white text-gray-900 border border-gray-200">
         <PhotoProvider>
           <PhotoView src={img}>
-            <img src={img} alt="" />
+            <img className="border border-gray-300 rounded" src={img} alt="" />
           </PhotoView>
         </PhotoProvider>
 

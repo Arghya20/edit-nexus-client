@@ -1,11 +1,15 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import useTitle from "../hooks/useTitle";
+import Addreview from "../Addreview/Addreview";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 
 const ServiceDetails = () => {
   useTitle("ServiceDetails");
+  const { user } = useContext(AuthContext);
   const { title, img, dec, price } = useLoaderData();
   return (
     <div>
@@ -24,6 +28,26 @@ const ServiceDetails = () => {
         <p>
           <span className="text-xl font-semibold">Price:</span> ${price}
         </p>
+      </div>
+      <div className=" my-20">
+        {user?.uid ? (
+          <>
+            <PrivateRoute>
+              {" "}
+              <Addreview></Addreview>
+            </PrivateRoute>
+          </>
+        ) : (
+          <>
+            <div className="flex justify-center">
+              <Link to="/login">
+                <button className=" outline outline-gray-600 hover:bg-gray-700 hover:text-white py-3 px-6 rounded-full">
+                  Please login to add Review
+                </button>
+              </Link>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

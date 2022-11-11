@@ -1,20 +1,22 @@
-import React, { useState } from "react";
-import {
-  FaBloggerB,
-  FaEdit,
-  FaHome,
-  FaPlusSquare,
-  FaRegPlusSquare,
-} from "react-icons/fa";
+import React, { useContext, useState } from "react";
+import { FaBloggerB, FaEdit, FaHome, FaRegPlusSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handelLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error.massage));
+  };
 
   return (
     <div className="bg-gray-50">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 bg-gray-50">
-        <div className="relative flex items-center justify-between">
+        <div className="relative flex items-center justify-between ">
           <Link
             to="/"
             aria-label="Company"
@@ -31,6 +33,15 @@ const Header = () => {
               nexus
             </span>
           </Link>
+          <div className="absolute top-20">
+            {" "}
+            {user?.uid && (
+              <>
+                {" "}
+                <p className="text-sm text-gray-400">Hello👋 {user?.email}</p>
+              </>
+            )}
+          </div>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
               <Link
@@ -58,42 +69,56 @@ const Header = () => {
                 </span>
               </Link>
             </li>
-            <li>
-              <Link
-                to="/"
-                aria-label="Product pricing"
-                title="Product pricing"
-                className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400 flex items-center gap-x-1 hover:text-gray-800"
-              >
-                <FaEdit />
-                <span className=" font-semibold text-gray-700 hover:text-gray-900">
-                  Reviews
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                aria-label="About us"
-                title="About us"
-                className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400 flex items-center gap-x-1 hover:text-gray-800"
-              >
-                <FaRegPlusSquare />
-                <span className=" font-semibold text-gray-700 hover:text-gray-900">
-                  Add Services
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/login"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200  border border-gray-500 rounded-full hover:bg-gray-800 hover:text-white "
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Log In
-              </Link>
-            </li>
+
+            {user?.uid ? (
+              <>
+                <li>
+                  <Link
+                    to="/myreviews"
+                    aria-label="Product pricing"
+                    title="Product pricing"
+                    className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400 hover:text-gray-800"
+                  >
+                    <span className=" font-semibold text-gray-700 hover:text-gray-900">
+                      MY Reviews
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/addservices"
+                    aria-label="About us"
+                    title="About us"
+                    className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400    hover:text-gray-800"
+                  >
+                    <span className=" font-semibold text-gray-700 hover:text-gray-900">
+                      Add Services
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={handelLogout}
+                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200  border border-gray-500 rounded-full hover:bg-gray-800 hover:text-white "
+                  >
+                    Log Out
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link
+                    to="/login"
+                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200  border border-gray-500 rounded-full hover:bg-gray-800 hover:text-white "
+                    aria-label="Sign up"
+                    title="Sign up"
+                  >
+                    Log In
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
           <div className="lg:hidden">
             <button
@@ -185,42 +210,57 @@ const Header = () => {
                           </span>
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          to="/"
-                          aria-label="Product pricing"
-                          title="Product pricing"
-                          className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400 flex items-center gap-x-1 hover:text-gray-800"
-                        >
-                          <FaEdit />
-                          <span className=" font-semibold text-gray-700 hover:text-gray-900">
-                            Reviews
-                          </span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/"
-                          aria-label="About us"
-                          title="About us"
-                          className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400 flex items-center gap-x-1 hover:text-gray-800"
-                        >
-                          <FaRegPlusSquare />
-                          <span className=" font-semibold text-gray-700 hover:text-gray-900">
-                            Add Services
-                          </span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/login"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded-full border border-gray-500 hover:bg-gray-800 hover:text-white "
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          Log In
-                        </Link>
-                      </li>
+                      {user?.uid ? (
+                        <>
+                          <li>
+                            <Link
+                              to="/myreviews"
+                              aria-label="Product pricing"
+                              title="Product pricing"
+                              className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400 flex items-center gap-x-1 hover:text-gray-800"
+                            >
+                              <FaEdit />
+                              <span className=" font-semibold text-gray-700 hover:text-gray-900">
+                                My Reviews
+                              </span>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/addservices"
+                              aria-label="About us"
+                              title="About us"
+                              className="font-medium tracking-wide text-gray-500 transition-colors duration-200 hover:text-deep-purple-accent-400 flex items-center gap-x-1 hover:text-gray-800"
+                            >
+                              <FaRegPlusSquare />
+                              <span className=" font-semibold text-gray-700 hover:text-gray-900">
+                                Add Services
+                              </span>
+                            </Link>
+                          </li>
+                          <li>
+                            <button
+                              onClick={handelLogout}
+                              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200  border border-gray-500 rounded-full hover:bg-gray-800 hover:text-white "
+                            >
+                              Log Out
+                            </button>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li>
+                            <Link
+                              to="/login"
+                              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200  border border-gray-500 rounded-full hover:bg-gray-800 hover:text-white "
+                              aria-label="Sign up"
+                              title="Sign up"
+                            >
+                              Log In
+                            </Link>
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </nav>
                 </div>

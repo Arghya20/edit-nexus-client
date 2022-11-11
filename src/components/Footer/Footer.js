@@ -33,10 +33,10 @@ const Footer = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/">Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <Link to="/">Log In</Link>
+              <Link to="/login">Log In</Link>
             </li>
           </ul>
         </div>
