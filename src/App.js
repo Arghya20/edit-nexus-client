@@ -12,6 +12,7 @@ import Login from "./components/Login/Login";
 import AddServices from "./components/AddServices/AddServices";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Reviews from "./components/Reviews/Reviews";
+import Addreview from "./components/Addreview/Addreview";
 
 function App() {
   const router = createBrowserRouter([
@@ -35,6 +36,14 @@ function App() {
               <AddServices></AddServices>
             </PrivateRoute>
           ),
+        },
+        {
+          path: "/addreview/:id",
+          element: <Addreview></Addreview>,
+          loader: ({ params }) =>
+            fetch(
+              `https://video-editing-service-server.vercel.app/services/${params.id}`
+            ),
         },
         {
           path: "/myreviews",
